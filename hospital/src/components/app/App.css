@@ -1,0 +1,66 @@
+.App {
+    font-family: sans-serif;
+    background-color: rgb(158, 226, 158);
+  }
+  
+  .Header {
+    background-color: rgb(34, 97, 34);
+    color: white;
+    position: absolute; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    margin: 0 20px;
+    margin-right: 20px;
+  }
+
+  .Header, .OrangePart, .Photo {
+    border-top-left-radius: 20px; /* Rounded top-left corner */
+    border-top-right-radius: 20px; /* Rounded top-right corner */
+    border-bottom-right-radius: 20px; /* Rounded top-left corner */
+    border-bottom-left-radius: 20px; /* Rounded top-right corner */
+  }
+  
+  .LeftContent, .RightContent {
+    display: flex;
+    font-size: small;
+    display: inline;
+  }
+  
+  .OrangePart {
+    font-size: medium;
+    background-color: rgb(255, 170, 0);
+    padding: 5px 5px;
+    margin: 5px;
+  }
+
+  .GridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-rows: auto; /* Auto size rows */
+    gap: 20px; /* Adjust gap between items */
+    margin-top: 70px; /* Adjust margin to push content below header */
+    padding: 10px;
+  }
+  
+  .Photo {
+    grid-column: 1; /* Photo takes first column */
+    grid-row: 1 / span 2; /* Photo spans two rows */
+  }
+  
+  .Buttons {
+    grid-column: 2; /* Buttons take second column */
+    grid-row: 2; /* Buttons on second row */
+    display: flex;
+    justify-content: center; /* Align buttons to the right */
+  }
+  
+  .Buttons button {
+    margin-left: 10px; /* Adjust margin between buttons */
+  }
