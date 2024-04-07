@@ -1,0 +1,30 @@
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // Use flex-start to align items at the start of the container
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 2;
+  margin-right: 86%;
+  margin-bottom: 2%;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+    margin-right: 55%; // Reset margin-right for smaller screens to use full width
+    justify-content: flex-start; // Optional: Adjust this to align stars as needed on smaller screens
+  }
+}
+
+.rating__radio {
+  display: none; // Keep radios hidden as they are custom-styled
+  z-index: 2;
+}
+
+.rating__star {
+  cursor: pointer;
+  display: flex;
+  z-index: 2;
+
+  @media (max-width: 450px) {
+  }
+}

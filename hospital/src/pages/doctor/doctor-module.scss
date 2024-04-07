@@ -1,0 +1,208 @@
+.Grid {
+    background-color: #FFFEF9;
+    z-index: 1;
+}
+
+.doctor {
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+        z-index: 0;
+
+        @media (max-width: 450px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__img {
+        width: 35%;
+        border-radius: 5%;
+        margin-top: 8%;
+        margin-right: 7%;
+
+        @media (max-width: 450px) {
+            width: 80%;
+            margin-top: 4%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__text-container {
+        margin-top: 12%;
+        @media (max-width: 450px) {
+            margin-top: 5%;
+        }
+
+        &__name {
+            margin-left: 35%;
+            @media (max-width: 450px) {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            &__last, &__first {
+                display: block;
+                color: #0D6240;
+                font-size: 30px;
+                font-weight: bold;
+
+                @media (max-width: 450px) {
+                    font-size: 24px; // Slightly smaller for mobile
+                }
+            }
+        }
+
+        &__information {
+            color: gray;
+            font-size: 13px;
+            white-space: nowrap;
+            line-height: 1.5;
+            margin-left: 50%;
+            margin-top: 12%;
+
+            @media (max-width: 450px) {
+                margin-left: 0;
+                text-align: center;
+                margin-top: 5%;
+            }
+
+            &__specialty, &__location, &__ratings, &__work-hours {
+                display: flex;
+                align-items: center;
+
+                @media (max-width: 450px) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    &__signup {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 12%;
+        margin-left: 60%;
+
+        @media (max-width: 450px) {
+            margin-top: 5%;
+            margin-left: 0;
+            flex-direction: column;
+        }
+
+        &__appointment-button, &__review-button {
+            background-color: #0D6240;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 15px;
+            padding: 5px 30px;
+            white-space: nowrap;
+
+            &:first-child {
+                margin-right: 5%;
+
+                @media (max-width: 450px) {
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    &__comment-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fffffff7;
+        border: 0.001px solid rgb(200, 200, 200);
+        padding: 40px;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 650px;
+        z-index: 0;
+        margin-top: 8%;
+        margin-left: 18%;
+
+        @media (max-width: 450px) {
+            width: 50%;
+            height: 150%;
+            padding: 20px;
+            margin-top: 5%;
+            align-items: center;
+
+        }
+
+        &__comment-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            resize: vertical;
+            margin-bottom: 10px;
+
+            @media (max-width: 450px) {
+                // Adjustments for mobile can be added here if needed
+            }
+        }
+
+        &__submit-comment-button {
+            background-color: #0D6240;
+            color: white;
+            border: none;
+            padding: 5px 40px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 15px;
+            align-self: flex-end;
+
+            @media (max-width: 450px) {
+                width: 100%; // Make the button full-width for easier interaction on mobile
+                align-self: center; // Center the button if flex-end alignment isn't ideal on mobile
+            }
+        }
+    }
+
+    &__comments-display {
+        width: 61%;
+        margin-top: 20px;
+        align-items: center;
+        margin-left: 18%;
+        font-size: 12px;
+
+        @media (max-width: 450px) {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 10px; // Adjust spacing for mobile layout
+        }
+
+        &__comment-item {
+            background-color: #fffffff7;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            word-wrap: break-word;
+            border: 1px solid #ccc;
+
+            p {
+                display: flex;
+                align-items: center;
+
+                .fa-star {
+                    color: #ff8408;
+                    margin-right: 4px;
+
+                    @media (max-width: 450px) {
+                        // Any specific mobile adjustments for stars can go here
+                    }
+                }
+            }
+        }
+    }
+}
