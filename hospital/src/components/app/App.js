@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import HospitalHeader from './Header';
-import doctorsPhoto from './images/doctors.png';
-import contactIcon from './images/contacts.png';
-import newsIcon from './images/news.png';
-import departmentsIcon from './images/departments.png';
-import healthSchoolIcon from './images/health_school.png';
-import goToNewsIcon from './images/go_to_news_item.png';
-import goToAllNewsIcon from './images/go_to_all_news.png';
+import HospitalHeader from '../Header/Header';
+import doctorsPhoto from '../../images/../images/doctors.png';
+import contactIcon from '../../images/../images/contacts.png';
+import newsIcon from '../../images/../images/news.png';
+import departmentsIcon from '../../images/../images/departments.png';
+import healthSchoolIcon from '../../images/../images/health_school.png';
+import goToNewsIcon from '../../images/../images/go_to_news_item.png';
+import goToAllNewsIcon from '../../images/go_to_all_news.png';
 
 import {Button, Col, Container, Image, Navbar, NavbarText, Row} from 'react-bootstrap';
-import {VerticalDivider, VerticalSpacer} from "./SpacingElements";
+import {VerticalDivider, VerticalSpacer} from "../SpacingElements/SpacingElements";
 import ApplicationPaths from "./paths";
 import {Link} from "react-router-dom";
 

@@ -5,7 +5,7 @@ import App from './components/app/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ApplicationPaths from "./components/app/paths";
 import {RouterProvider, createBrowserRouter} from "react-router-dom";
-import TestLoginPage from "./components/app/TestLoginPage";
+import TestLoginPage from "./components/TestLoginPage/TestLoginPage";
 
 const router = createBrowserRouter([
     {
