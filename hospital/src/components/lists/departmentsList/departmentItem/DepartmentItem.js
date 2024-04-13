@@ -1,5 +1,5 @@
 import {useState, React} from "react";
-import "./departmentitem-module.scss";
+import "./DepartmentItem.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,

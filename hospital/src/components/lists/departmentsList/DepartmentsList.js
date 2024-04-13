@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DepartmentItem from "./departmentItem/DepartmentItem";
 import profilePhoto from "../../../profile-photo.png";
-import './departmentslist-module.scss'
+import './DepartmentsList.scss'
 
 
 const DepartmentsList = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./list-module.scss";
-import DoctorsList from "./doctorsList/DoctorsList";
-import DepartmentsList from "./departmentsList/DepartmentsList";
+import "./ListPage.scss";
+import DoctorsList from "../../components/lists/doctorsList/DoctorsList";
+import DepartmentsList from "../../components/lists/departmentsList/DepartmentsList";
 
 const List = () => {
   const [selectedButton, setSelectedButton] = useState(1);

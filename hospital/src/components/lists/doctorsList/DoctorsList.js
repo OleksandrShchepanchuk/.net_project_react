@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DoctorItem from './doctorItem/DoctorItem';
 import profilePhoto from '../../../profile-photo.png'
-import './doctorslist-module.scss'
+import './DoctorList.scss'
 
-const YourComponent = () => {
+const DoctorsList = () => {
     const [data, setData] = useState([]);
   
     const fetchDepartments = () => {
@@ -242,4 +242,4 @@ const YourComponent = () => {
   )
 }
 
-export default YourComponent;
+export default DoctorsList;

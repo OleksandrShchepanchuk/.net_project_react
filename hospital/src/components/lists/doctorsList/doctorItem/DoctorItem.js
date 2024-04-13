@@ -1,5 +1,5 @@
 import React from "react";
-import './doctoritem-module.scss'
+import './DoctorItem.scss'
 
 const DoctorItem = (props) => {
   const { img, name } = props;
