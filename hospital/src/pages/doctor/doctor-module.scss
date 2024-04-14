@@ -7,7 +7,7 @@
     &__card {
         display: flex;
         justify-content: center;
-        gap: 200px;
+        gap: 10px;
         align-items: center;
         flex-direction: row-reverse;
         z-index: 0;
@@ -22,6 +22,7 @@
         width: 505px;
         border-radius: 5%;
         margin-top: 3%;
+        margin-right: 7%;
         
 
         @media (max-width: 450px) {
@@ -34,6 +35,7 @@
 
     &__text-container {
         width: 600px;
+        margin-right: 15%;
         @media (max-width: 450px) {
             margin-top: 5%;
         }
