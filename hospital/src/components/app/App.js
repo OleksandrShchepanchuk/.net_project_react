@@ -1,10 +1,15 @@
-import List from "../../pages/ListPage/ListPage";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import LoginPage  from '../../pages/LoginPage/LoginPage'
 
 function App() {
   return (
-    <>
-      <List />
-    </>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/login' element={<LoginPage/>}></Route>
+        </Routes>
+
+      </BrowserRouter>
   );
 }
 
