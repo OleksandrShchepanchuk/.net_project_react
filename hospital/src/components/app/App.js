@@ -1,4 +1,3 @@
-
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LoginPage  from '../../pages/LoginPage/LoginPage'
@@ -16,3 +15,5 @@ function App() {
       </BrowserRouter>
   );
 }
+
+export default App;
