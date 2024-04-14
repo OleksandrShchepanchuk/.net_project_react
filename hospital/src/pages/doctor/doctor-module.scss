@@ -43,17 +43,29 @@
                 margin-left: 0;
                 text-align: center;
             }
-
-            &__last, &__first {
-                display: block;
+        
+            &__first{
+                display: block; // Keeps last and middle name on the same line
                 color: #0D6240;
                 font-size: 30px;
                 font-weight: bold;
-
+    
                 @media (max-width: 450px) {
                     font-size: 24px; // Slightly smaller for mobile
                 }
             }
+
+            &__last {
+                display: inline; // Ensures it's on its own line
+                color: #0D6240;
+                font-size: 30px;
+                font-weight: bold;
+        
+                @media (max-width: 450px) {
+                    font-size: 24px; // Slightly smaller for mobile
+                }
+            }
+            
         }
 
         &__information {
@@ -170,7 +182,7 @@
     }
 
     &__comments-display {
-        width: 61%;
+        width: 53.5%;
         margin-top: 20px;
         align-items: center;
         margin-left: 18%;
