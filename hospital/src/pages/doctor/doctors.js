@@ -91,3 +91,6 @@ export function Doctor({ id, name, specialty, location, ratings, image, time }) 
         </div>
     );
 }
+
+
+export default Doctor;
