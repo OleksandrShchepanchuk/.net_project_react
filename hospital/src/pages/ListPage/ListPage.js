@@ -3,7 +3,7 @@ import "./ListPage.scss";
 import DoctorsList from "../../components/lists/doctorsList/DoctorsList";
 import DepartmentsList from "../../components/lists/departmentsList/DepartmentsList";
 
-const List = () => {
+const ListPage = () => {
   const [selectedButton, setSelectedButton] = useState(1);
 
   const handleButtonClick = (index) => {
@@ -31,4 +31,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ListPage;
