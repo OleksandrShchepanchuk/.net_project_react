@@ -141,14 +141,15 @@
         z-index: 0;
         margin-top: 8%;
         margin-left: 18%;
+        
 
         @media (max-width: 450px) {
-            width: 50%;
-            height: 150%;
-            padding: 20px;
-            margin-top: 5%;
-            align-items: center;
+                width: 90%;
+                height: 150%;
+                padding: 20;
+                margin: 10px auto  ;
 
+            
         }
 
         &__comment-input {
@@ -160,7 +161,7 @@
             margin-bottom: 10px;
 
             @media (max-width: 450px) {
-                // Adjustments for mobile can be added here if needed
+
             }
         }
 
