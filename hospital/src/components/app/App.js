@@ -1,24 +1,18 @@
-import { Doctor } from '../../pages/doctor/doctors';
-import contents from '../../content';
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import LoginPage  from '../../pages/LoginPage/LoginPage'
+import ListPage from "../../pages/ListPage/ListPage";
 
 
+function App() {
+  return (
+      <BrowserRouter>
+        <Routes>
+          <Route path='/login' element={<LoginPage/>}></Route>
+          <Route path="/list-page" element={<ListPage></ListPage>}></Route>
+        </Routes>
 
-export default function App() {
-  return(
-    
-    <div className='App'>
-      {contents.map(content => (
-        <Doctor
-        key = {content.id}
-        image = {content.image}
-        name = {content.name}
-        location = {content.location}
-        specialty = {content.specialty}
-        ratings={content.ratings}
-        time ={content.time}
-
-        />
-      ))}
-    </div>
-  )
-};
+      </BrowserRouter>
+  );
+}

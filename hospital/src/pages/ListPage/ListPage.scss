@@ -1,0 +1,20 @@
+.list {
+    &-btns {
+        text-align: center;
+        margin: 90px 0px;
+    }
+    &-btn {
+        position: relative;
+        background: white;
+        border: 0.1px solid #0D6240;
+        border-radius: 20px;
+        padding: 7px 40px;
+        margin: 0px -15px;
+        z-index: 0;
+    }
+    &-btn.selected {
+        background-color: #0D6240;
+        color: white;
+        z-index: 1;
+    }
+}
