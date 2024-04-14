@@ -64,9 +64,9 @@ export function Doctor({ id, name, specialty, location, ratings, image, time }) 
                             {time}
                         </div>
                     </div>
-                    <div className='doctor__signup'>
-                        <button onClick={handleAppointmentClick} className="doctor__signup__appointment-button">Записатися</button>
-                        <button onClick={handleAppointmentClick} className="doctor__signup__review-button">Залишити відгук</button>
+                    <div className='doctor__text-container__signup'>
+                        <button onClick={handleAppointmentClick} className="doctor__text-container__signup__appointment-button">Записатися</button>
+                        <button onClick={handleAppointmentClick} className="doctor__text-container__signup__review-button">Залишити відгук</button>
                     </div>
                 </div>
             </div>

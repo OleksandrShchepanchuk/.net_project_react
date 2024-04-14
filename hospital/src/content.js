@@ -1,9 +1,9 @@
-import doctorImage from 'C:\\Users\\Віктор\\Desktop\\project\\node_project\\.net_project_react\\hospital\\src\\components\\app\\img\\Prof-dr-Lamberto-RE-ozonetherapy-congress-romania-2.jpg';
+import doctorImage from '../src/images/images_doctor/Prof-dr-Lamberto-RE-ozonetherapy-congress-romania-2.jpg';
 
 
 const doctorInfo = [{
     id: 1,
-    name: 'Дідух \n\n Софія Батьківна',
+    name: 'Дідух \n\n Софія Іванівна',
     specialty: 'Терапевт',
     location: 'м.Мостиська, відділення 1',
     image: doctorImage ,

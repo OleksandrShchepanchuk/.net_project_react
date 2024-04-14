@@ -6,7 +6,8 @@
 .doctor {
     &__card {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 200px;
         align-items: center;
         flex-direction: row-reverse;
         z-index: 0;
@@ -18,10 +19,10 @@
     }
 
     &__img {
-        width: 35%;
+        width: 505px;
         border-radius: 5%;
-        margin-top: 8%;
-        margin-right: 7%;
+        margin-top: 3%;
+        
 
         @media (max-width: 450px) {
             width: 80%;
@@ -32,7 +33,7 @@
     }
 
     &__text-container {
-        margin-top: 12%;
+        width: 600px;
         @media (max-width: 450px) {
             margin-top: 5%;
         }
@@ -47,8 +48,8 @@
             &__first{
                 display: block; // Keeps last and middle name on the same line
                 color: #0D6240;
-                font-size: 30px;
-                font-weight: bold;
+                font-size: 38px;
+                font-weight: 500;
     
                 @media (max-width: 450px) {
                     font-size: 24px; // Slightly smaller for mobile
@@ -58,7 +59,7 @@
             &__last {
                 display: inline; // Ensures it's on its own line
                 color: #0D6240;
-                font-size: 30px;
+                font-size: 45px;
                 font-weight: bold;
         
                 @media (max-width: 450px) {
@@ -70,7 +71,7 @@
 
         &__information {
             color: gray;
-            font-size: 13px;
+            font-size: 25px;
             white-space: nowrap;
             line-height: 1.5;
             margin-left: 50%;
@@ -92,40 +93,48 @@
                 }
             }
         }
-    }
+    
 
-    &__signup {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 12%;
-        margin-left: 60%;
+        &__signup {
+            width: 530px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            margin-left: 180px;        
 
-        @media (max-width: 450px) {
-            margin-top: 5%;
-            margin-left: 0;
-            flex-direction: column;
-        }
+            @media (max-width: 450px) {
+                margin-top: 5%;
+                margin-left: 0;
+                flex-direction: column;
+            }
 
-        &__appointment-button, &__review-button {
-            background-color: #0D6240;
-            color: white;
-            border: none;
-            font-size: 16px;
-            border-radius: 15px;
-            padding: 5px 30px;
-            white-space: nowrap;
 
-            &:first-child {
-                margin-right: 5%;
+            &__appointment-button, &__review-button {
+                background-color: #0D6240;
+                color: white;
+                border: none;
+                width: 260px;
+                height: 50px;
+                font-size: 25px;
+                border-radius: 15px;
+                padding: 5px 30px;
+                white-space: nowrap;
+                font-weight: 300 bold;
 
-                @media (max-width: 450px) {
-                    margin-right: 0;
-                    margin-bottom: 10px;
+
+                &:first-child {
+                    margin-right: 5%;
+
+                    @media (max-width: 450px) {
+                        margin-right: 0;
+                        margin-bottom: 10px;
+                    }
                 }
             }
         }
+    
     }
 
     &__comment-section {
@@ -135,12 +144,11 @@
         background-color: #fffffff7;
         border: 0.001px solid rgb(200, 200, 200);
         padding: 40px;
-        border-radius: 15px;
-        width: 80%;
-        max-width: 650px;
+        border-radius: 40px;
+        width: 1220px;
+        height: 300px;
         z-index: 0;
-        margin-top: 8%;
-        margin-left: 18%;
+        margin: 30px auto;
         
 
         @media (max-width: 450px) {
@@ -154,10 +162,10 @@
 
         &__comment-input {
             width: 100%;
+            height: 60%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 15px;
-            resize: vertical;
             margin-bottom: 10px;
 
             @media (max-width: 450px) {
@@ -169,11 +177,15 @@
             background-color: #0D6240;
             color: white;
             border: none;
+            width: 207px;
+            height: 49px;
             padding: 5px 40px;
-            font-size: 16px;
+            font-size: 26px;
             cursor: pointer;
             border-radius: 15px;
             align-self: flex-end;
+            font-weight: 300 bold;
+
 
             @media (max-width: 450px) {
                 width: 100%; // Make the button full-width for easier interaction on mobile
@@ -183,11 +195,13 @@
     }
 
     &__comments-display {
-        width: 53.5%;
-        margin-top: 20px;
+        width: 1220px;
+        height: 200px;
+        margin: 30px auto;
         align-items: center;
-        margin-left: 18%;
-        font-size: 12px;
+        font-size: 25px;
+        font-weight: 300 bold;
+
 
         @media (max-width: 450px) {
             width: 90%;
@@ -199,15 +213,17 @@
             background-color: #fffffff7;
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 10px;
+            border-radius: 15px;
             word-wrap: break-word;
             border: 1px solid #ccc;
 
             p {
+                margin-left: 3%;
                 display: flex;
                 align-items: center;
 
                 .fa-star {
+                    margin-left: 2px;
                     color: #ff8408;
                     margin-right: 4px;
 
