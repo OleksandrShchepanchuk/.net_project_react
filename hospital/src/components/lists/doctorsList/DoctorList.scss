@@ -1,0 +1,22 @@
+.doctor-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5%;
+    row-gap: 70px;
+    margin-bottom: 100px;
+}
+.doctor-list h2 {
+    grid-column: 1 / -1; 
+    color:  #0D6240;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 450px) {
+    .doctor-list {
+        display: block;
+    }
+    .doctor-list div {
+        margin: 70px 0px;
+    }
+}
