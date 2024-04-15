@@ -3,8 +3,8 @@ const RootPath = '/';
 const ApplicationPaths = {
     RootPath,
     LoginPage: `${RootPath}login`,
-    DepartmentsPage: `${RootPath}departments`,
-    DoctorInfoPage: `${RootPath}doctorInfo`,
+    DepartmentsPage: `${RootPath}list-page`,
+    DoctorInfoPage: `${RootPath}new-doctor-page`,
 }
 
 Object.seal(ApplicationPaths);

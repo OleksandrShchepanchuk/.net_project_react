@@ -1,3 +1,4 @@
+import React from 'react';
 import './LoginPage.scss'
 import LoginBox from './LoginBox'
 

@@ -1,8 +1,8 @@
+import React from 'react';
 import './LoginPage.scss'
 import {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import AxiosInstance from "../../api/axios";
 
 
