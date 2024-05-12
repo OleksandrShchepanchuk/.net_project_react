@@ -4,10 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-free/css/all.css'; 
 import { faLocationDot, faStethoscope, faStar, faClock } from '@fortawesome/free-solid-svg-icons';
 import Rating from '../../components/Rating/Rating';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-
 
 export function Doctor({ id, name, specialty, location, ratings, image, time }) {
     const [comments, setComments] = useState([]);
@@ -17,25 +13,8 @@ export function Doctor({ id, name, specialty, location, ratings, image, time }) 
 
     const handleAppointmentClick = () => {
         alert("Функція запису на прийом");
-
-
     };
-const { id } = useParams();
-  const [doctor, setDoctor] = useState(null);
 
-  useEffect(() => {
-    axios.get(`http://localhost:5075/api/doctors/${id}`)
-      .then(response => {
-        setDoctor(response.data);
-      })
-      .catch(error => {
-        console.error('Failed to fetch doctor', error);
-      });
-  }, [id]);
-
-  if (!doctor) {
-    return <div>Loading...</div>;
-  }
     // const nameParts = name.split(' ');
     // const lastName = nameParts[0];
     // const firstNameAndPatronymic = nameParts.slice(1).join(' ');
