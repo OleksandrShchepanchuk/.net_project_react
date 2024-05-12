@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom'
 
 const DoctorItem = (props) => {
   return (
-    <Link to={`/api/Doctors/${props.id}`}>
-      <img src={props.img} className="doctor-img" />
+    <Link to={`/new-doctor-page/${props.id}`}>
+      {/* <img src={props.img} className="doctor-img" /> */}
       <h3 className="doctor-name">{props.name}</h3>
     </Link>
   );
