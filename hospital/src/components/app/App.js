@@ -6,10 +6,11 @@ import ListPage from "../../pages/ListPage/ListPage";
 import Doctor from "../../pages/doctor/doctor";
 import content from '../../content';
 import MainPage from '../../pages/MainPage/MainPage';
+import { AddArticle } from '../../pages/AddArticlePage/AddArticle';
 
 
 function App() {
-  console.log(content);
+  // console.log(content);
   return (
       <BrowserRouter>
         <Routes>
@@ -24,6 +25,8 @@ function App() {
                     ratings={content.ratings}
                     time ={content.time}></Doctor>}>
           </Route>
+          <Route path="add-article" element={<AddArticle></AddArticle>}></Route>
+          <Route path="edit-article/:id" element={<AddArticle></AddArticle>}></Route>
         </Routes>
       </BrowserRouter>
   );
