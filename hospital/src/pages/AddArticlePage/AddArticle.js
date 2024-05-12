@@ -37,8 +37,9 @@ export const AddArticle = () => {
   const handleChangeFile = async (event) => {
     try {
       const formData = new FormData();
-      formData.append('image', event.target.files[0]);
-      const { data } = await axios.post('/upload', formData);
+      formData.append('file', event.target.files[0]);
+
+      const { data } = await axios.post('files/upload', formData);
       setImageUrl(data.url);
     } catch (error) {
       console.error("Error uploading file: ", error);
@@ -53,32 +54,43 @@ export const AddArticle = () => {
       spellChecker: false,
       maxHeight: '400px',
       autofocus: true,
-      placeholder: 'Введите текст...',
+      placeholder: 'Text...',
       status: false,
       autosave: {
         enabled: true,
+        uniqueId: id || 'new-article', // Use the article ID or a default string if ID isn't available
         delay: 1000,
       },
     }),
-    [],
+    [id], // Include id in the dependency array so it updates if id changes
   );
-  
   const onChange = useCallback((value) => setText(value), []);
 
   const onSubmit = async () => {
+    const fields = {
+      title,
+      image: imageUrl,
+      content: text,
+    };
+    let id_1;
     try {
-      const fields = { title, imageUrl, text };
-      const { data } = isEditing
-        ? await axios.patch(`/articles/${id}`, fields)
-        : await axios.post('/articles', fields);
-
-      const _id = isEditing ? id : data.id;
-      navigate(`/articles/${_id}`);
+      let response;
+      if (isEditing) {
+        response = await axios.put(`/articles/${id}`, fields);
+      } else {
+        response = await axios.post('/articles', fields);
+        console.log(response.data)
+        id_1 = response.data.articleId; 
+        console.log()
+      }
+      navigate(`/articles/${id_1}`);
     } catch (error) {
-      console.warn("Error processing article: ", error);
-      alert('Error, cannot create article');
+      console.error("Error processing article:", error);
+      alert('Error, cannot process article: ' + (error.response ? error.response.data : "No response"));
     }
   };
+  
+
 
   if (!authChecked) {
     return <div>Loading...</div>;
@@ -99,7 +111,7 @@ export const AddArticle = () => {
           <Button className="add-article__buttons-button" variant="contained" color="error" onClick={onClickRemoveImage}>
             Delete
           </Button>
-          {/* <img className="add-article__image" src={`http://localhost:4444${imageUrl}`} alt="Uploaded" /> */}
+          <img className="add-article__image" src={imageUrl} alt="Uploaded" />
         </>
       )}
       <TextField

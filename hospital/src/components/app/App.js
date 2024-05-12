@@ -7,10 +7,10 @@ import Doctor from "../../pages/doctor/doctor";
 import content from '../../content';
 import MainPage from '../../pages/MainPage/MainPage';
 import { AddArticle } from '../../pages/AddArticlePage/AddArticle';
+import { FullArticle } from '../../pages/FullArticlePage/FullArticle';
 
 
 function App() {
-  // console.log(content);
   return (
       <BrowserRouter>
         <Routes>
@@ -27,6 +27,7 @@ function App() {
           </Route>
           <Route path="add-article" element={<AddArticle></AddArticle>}></Route>
           <Route path="edit-article/:id" element={<AddArticle></AddArticle>}></Route>
+          <Route path="articles/:id" element={<FullArticle></FullArticle>}></Route>
         </Routes>
       </BrowserRouter>
   );

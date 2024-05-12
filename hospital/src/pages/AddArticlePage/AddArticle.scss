@@ -18,7 +18,7 @@
     }
   
     &__editor {
-      margin: 30px -30px;
+      margin: 30px ;
   
       :global {
         .cm-s-easymde {
@@ -36,7 +36,7 @@
       display: flex;
   
       &-button {
-        margin-right: 15px;
+        margin-right: 100px;
       }
     }
   }
