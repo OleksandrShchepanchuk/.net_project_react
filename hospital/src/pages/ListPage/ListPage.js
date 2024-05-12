@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ListPage.scss";
 import DoctorsList from "../../components/lists/doctorsList/DoctorsList";
 import DepartmentsList from "../../components/lists/departmentsList/DepartmentsList";
+import HospitalHeader from "../../components/Header/Header";
 
 const ListPage = () => {
   const [selectedButton, setSelectedButton] = useState(1);
@@ -12,6 +13,7 @@ const ListPage = () => {
 
   return (
     <div className="container">
+      <HospitalHeader />
       <div className='list-btns'>
         <button
           className={`list-btn ${selectedButton === 1 ? 'selected' : ''}`}

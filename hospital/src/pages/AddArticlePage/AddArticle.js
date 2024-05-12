@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, useContext } from 'react';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { TextField, Paper, Button } from '@mui/material';
 import SimpleMDE from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import axios from '../../api/axios';
 import './AddArticle.scss'; 
+import AuthenticationContext from '../../context/AuthenticationContext';
 
 
 export const AddArticle = () => {
@@ -18,21 +19,10 @@ export const AddArticle = () => {
   const inputFileRef = useRef(null);
   const isEditing = Boolean(id);
 
-  useEffect(() => {
-    async function fetchAuthStatus() {
-      try {
-        const response = await axios.get('/api/auth/validate');
-        setIsAuth(response.data.isAuthenticated);
-      } catch (error) {
-        console.error("Authentication validation failed:", error);
-        setIsAuth(true);
-      } finally {
-        setAuthChecked(true);
-      }
-    }
+  const { isAuthenticated,  setIsAuthenticated} = useContext(AuthenticationContext);
+  const {isAdmin, setIsAdmin}= useContext(AuthenticationContext);
   
-    fetchAuthStatus();
-  }, []);
+  console.log(isAdmin)
 
   const handleChangeFile = async (event) => {
     try {
@@ -92,43 +82,42 @@ export const AddArticle = () => {
   
 
 
-  if (!authChecked) {
-    return <div>Loading...</div>;
-  }
 
-  if (!isAuth) {
-    return <Navigate to='/' />;
-  }
-
-  return (
-    <Paper className="add-article" style={{ padding: 30 }}>
-      <Button className="add-article__buttons-button" onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
-        Upload Image
-      </Button>
-      <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
-      {imageUrl && (
-        <>
-          <Button className="add-article__buttons-button" variant="contained" color="error" onClick={onClickRemoveImage}>
-            Delete
+    return (
+      !isAdmin ? (
+        <Navigate to="/" />
+      ) : (
+        <Paper className="add-article" style={{ padding: 30 }}>
+          <Button className="add-article__buttons-button" onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
+            Upload Image
           </Button>
-          <img className="add-article__image" src={imageUrl} alt="Uploaded" />
-        </>
-      )}
-      <TextField
-        className="add-article__title-input"
-        variant="standard"
-        placeholder="Article title..."
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        fullWidth
-      />
-      <SimpleMDE className="add-article__editor" value={text} onChange={onChange} options={options} />
-      <div className="add-article__buttons">
-        <Button className="add-article__buttons-button" onClick={onSubmit} size="large" variant="contained">
-          {isEditing ? 'Edit' : 'Publish'}
-        </Button>
-        <Button className="add-article__buttons-button" size="large">Cancel</Button>
-      </div>
-    </Paper>
-  );
-};
+          <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
+          {imageUrl && (
+            <>
+              <Button className="add-article__buttons-button" variant="contained" color="error" onClick={onClickRemoveImage}>
+                Delete
+              </Button>
+              <img className="add-article__image" src={imageUrl} alt="Uploaded" />
+            </>
+          )}
+          <TextField
+            className="add-article__title-input"
+            variant="standard"
+            placeholder="Article title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            fullWidth
+          />
+          <SimpleMDE className="add-article__editor" value={text} onChange={onChange} options={options} />
+          <div className="add-article__buttons">
+            <Button className="add-article__buttons-button" onClick={onSubmit} size="large" variant="contained">
+              {isEditing ? 'Edit' : 'Publish'}
+            </Button>
+            <Button className="add-article__buttons-button" size="large">Cancel</Button>
+          </div>
+        </Paper>
+      )
+    );
+  }
+
+    

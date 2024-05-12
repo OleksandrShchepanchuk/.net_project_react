@@ -232,9 +232,7 @@ const DoctorsList = () => {
                     );
                 } else {
                     return (
-                        <div key={elem.prodId}>
-                            <DoctorItem img={elem.image} name={elem.name} />
-                        </div>
+                      <DoctorItem key={elem.DoctorId} id={elem.DoctorId} img={elem.Image} name={elem.Name} />
                     );
                 }
             })}

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
+import VideoNewsPage from "../../pages/VideoNewsPage/VideoNewsPage";
+import Header from "../Header/Header";
 import LoginPage  from '../../pages/LoginPage/LoginPage'
 import ListPage from "../../pages/ListPage/ListPage";
 import Doctor from "../../pages/doctor/doctor";
@@ -28,6 +30,8 @@ function App() {
           <Route path="add-article" element={<AddArticle></AddArticle>}></Route>
           <Route path="edit-article/:id" element={<AddArticle></AddArticle>}></Route>
           <Route path="articles/:id" element={<FullArticle></FullArticle>}></Route>
+          <Route path="/news" element={<VideoNewsPage isItVideoOrNewsProp={'news'}/>}></Route>
+          <Route path="/videos" element={<VideoNewsPage isItVideoOrNewsProp={"video"}/>}></Route>
         </Routes>
       </BrowserRouter>
   );

@@ -9,10 +9,10 @@ import {VerticalDivider} from "../SpacingElements/SpacingElements";
 import {Link} from "react-router-dom";
 
 const BigActionButtons = [
-    {text: 'Новини', image_src: newsIcon, nav_target: ApplicationPaths.RootPath},
+    {text: 'Новини', image_src: newsIcon, nav_target: ApplicationPaths.NewsPage},
     {text: 'Контакти', image_src: contactIcon, nav_target: ApplicationPaths.RootPath},
     {text: 'Відділення та лікарі', image_src: departmentsIcon, nav_target: ApplicationPaths.DepartmentsPage},
-    {text: 'Школа здоров\'я', image_src: healthSchoolIcon, nav_target: ApplicationPaths.RootPath},]
+    {text: 'Школа здоров\'я', image_src: healthSchoolIcon, nav_target: ApplicationPaths.VideoPage},]
 
 
 function BigTileMainMenu() {

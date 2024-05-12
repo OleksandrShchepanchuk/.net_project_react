@@ -1,15 +1,18 @@
 .page_container{
   display: flex;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
   height: 100vh;
   width: 100vw;
   background-color: #FFFFFA;
 }
 
-
+.box_container{
+  margin-top:10%;
+}
 
 .login{
+
   &__switch-buttons{
     display: flex;
     flex-direction: row;
@@ -87,6 +90,18 @@
       font-size: 18px;
       font-weight: 450;
   }
-}
 
+
+}
+@media (max-width: 767px) {
+  .box_container {
+    margin-top:45%;
+    width: 85%;
+    }
+
+  .box_container * {
+    width: 100%;
+  }
+
+}
 

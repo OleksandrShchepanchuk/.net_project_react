@@ -1,13 +1,13 @@
 import React from "react";
 import './DoctorItem.scss'
+import {Link} from 'react-router-dom'
 
 const DoctorItem = (props) => {
-  const { img, name } = props;
   return (
-    <div>
-      <img src={img} className="doctor-img" />
-      <h3 className="doctor-name">{name}</h3>
-    </div>
+    <Link to={`/api/Doctors/${props.id}`}>
+      <img src={props.img} className="doctor-img" />
+      <h3 className="doctor-name">{props.name}</h3>
+    </Link>
   );
 };
 
