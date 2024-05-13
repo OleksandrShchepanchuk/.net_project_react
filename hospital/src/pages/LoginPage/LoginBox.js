@@ -16,7 +16,7 @@ const LoginBox = (props) =>{
     const {isAdmin, setIsAdmin}= useContext(AuthenticationContext);
     const navigate = useNavigate();
 
-
+    
     const toggleLogin = (login) => {
         setLogin(login);
     };

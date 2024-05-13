@@ -44,7 +44,7 @@ const VideoNewsPage = (props) => {
                     </div>
                     <div className={"page__list"}>
                         {data !== null && data.$values.map((item, index) => (
-                            <VideoNewsBox key={index} title={item.title} image={item.image} page={IsItVideoOrNews}/>
+                            <VideoNewsBox key={index} id={item.articleId} title={item.title} image={item.image} page={IsItVideoOrNews}/>
                         ))}
                     </div>
                 </div>
