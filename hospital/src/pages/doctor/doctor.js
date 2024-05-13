@@ -101,16 +101,16 @@
 
 // export default Doctor
 
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import './doctor-module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { faLocationDot, faStethoscope, faStar, faClock } from '@fortawesome/free-solid-svg-icons';
 import Rating from '../../components/Rating/Rating';
 import HospitalHeader from '../../components/Header/Header';
-import axios from '../../api/axios.js';
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate  } from "react-router-dom";
+import axios from 'axios';
+import AuthenticationContext from "../../context/AuthenticationContext";
 function Doctor(props) {
     const [doctor, setDoctor] = useState({});
     const [department, setDepartment] = useState({});
@@ -153,6 +153,10 @@ function Doctor(props) {
       }, [doctor]);
       
 
+    const [showCommentBox, setShowCommentBox] = useState(false);
+    const navigate = useNavigate();
+    const { isAuthenticated,  setIsAuthenticated} = useContext(AuthenticationContext);
+    const {isAdmin, setIsAdmin}= useContext(AuthenticationContext);
     const handleAppointmentClick = () => {
         alert("Функція запису на прийом");
     };
@@ -174,6 +178,15 @@ function Doctor(props) {
         setCommenterName('');
         setCommentRating(0);
     };
+
+    const handleLeaveCommentClick= () => {
+        if (isAuthenticated===true){
+            setShowCommentBox(true);
+        }else{
+            navigate('/login');
+        }
+    }
+
 
     return (
         <div className='doctor'>
@@ -197,20 +210,22 @@ function Doctor(props) {
                     </div>
                     <div className='doctor__text-container__signup'>
                         <button onClick={handleAppointmentClick} className="doctor__text-container__signup__appointment-button">Записатися</button>
-                        <button onClick={handleAppointmentClick} className="doctor__text-container__signup__review-button">Залишити відгук</button>
+                        <button onClick={handleLeaveCommentClick} className="doctor__text-container__signup__review-button">Залишити відгук</button>
                     </div>
                 </div>
             </div>
-            <div className='doctor__comment-section'>
-                <Rating onRate={handleRate} />
-                <textarea 
+            {showCommentBox && (<div className='doctor__comment-section'>
+                <Rating onRate={handleRate}/>
+                <textarea
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
-                    placeholder="Залиште ваш коментар" 
+                    placeholder="Залиште ваш коментар"
                     className="doctor__comment-section__comment-input"
                 ></textarea>
-                <button onClick={handleCommentSubmit} className="doctor__comment-section__submit-comment-button">Готово</button>
-            </div>
+                <button onClick={handleCommentSubmit}
+                        className="doctor__comment-section__submit-comment-button">Готово
+                </button>
+            </div>)}
             <div className="doctor__comments-display">
                 {comments.map((comment, index) => (
                     <div key={index} className="doctor__comments-display__comment-item">

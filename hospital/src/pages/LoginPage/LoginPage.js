@@ -2,11 +2,11 @@ import React from 'react';
 import './LoginPage.scss'
 import LoginBox from './LoginBox'
 
-const LoginPage = () =>{
+const LoginPage = (props) =>{
 
     return(
         <div className={'page_container'}>
-            <LoginBox></LoginBox>
+            <LoginBox setIsAuthenticated={props.setIsAuthenticated} setIsAdmin={props.setIsAdmin}></LoginBox>
         </div>
 
     );

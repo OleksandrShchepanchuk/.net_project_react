@@ -20,7 +20,7 @@ function MottoMenu() {
                     <a className='col-4 me-4' href='https://helsi.me'>
                         <button className='my-button w-100 primary'>Записатись на прийом</button>
                     </a>
-                    <button className='my-button col-4'>Інструкція запису</button>
+                    <button className='my-button col-4' onClick={()=>{ window.location.href='https://reform.helsi.me/instructions'}}>Інструкція запису</button>
                 </div>
             </Row>
         </Col>
