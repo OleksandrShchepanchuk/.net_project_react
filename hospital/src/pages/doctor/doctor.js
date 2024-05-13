@@ -108,33 +108,50 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { faLocationDot, faStethoscope, faStar, faClock } from '@fortawesome/free-solid-svg-icons';
 import Rating from '../../components/Rating/Rating';
 import HospitalHeader from '../../components/Header/Header';
+import { useParams, useNavigate  } from "react-router-dom";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import AuthenticationContext from "../../context/AuthenticationContext";
 function Doctor(props) {
-    const [doctor, setDoctor] = useState({
-        id: props.id,
-        name: '',
-        specialty: '',
-        location: '',
-        ratings: '',
-        image: '',
-        time: ''
-    });
+    const [doctor, setDoctor] = useState({});
+    const [department, setDepartment] = useState({});
     const [comments, setComments] = useState([]);
     const [commentText, setCommentText] = useState('');
     const [commenterName, setCommenterName] = useState('');
     const [commentRating, setCommentRating] = useState(0);
+    const [error, setError] = useState(null); // State to handle errors
+    const { id } = useParams();
+
+
 
     useEffect(() => {
-        axios.get(`/api/Doctors/${props.id}`)
-            .then(response => {
-                setDoctor({ ...response.data });
+        axios.get(`http://localhost:5075/api/Doctors/${id}`)
+          .then((response) => {
+            setDoctor(response.data);
+            console.log(doctor)
+            console.log(id)
+          })
+          .catch((error) => {
+            setError(error); // Handle any errors
+            console.error('Error fetching data: ', error);
+          });
+      }, []);
+      useEffect(() => {
+        if (doctor) {
+          axios.get(`http://localhost:5075/api/Departments/${doctor.departmentId}`)
+            .then((response) => {
+              // Обробляємо відповідь другого запиту
+              setDepartment(response.data)
+              console.log('Відповідь другого запиту: ', response.data);
+
             })
-            .catch(error => {
-                console.error('Error fetching doctor details:', error);
+            .catch((error) => {
+              // Обробляємо будь-які помилки
+              setError(error); // Handle any errors
+              console.error('Помилка другого запиту: ', error);
             });
-    }, [props.id]);
+        }
+      }, [doctor]);
+      
 
     const [showCommentBox, setShowCommentBox] = useState(false);
     const navigate = useNavigate();
@@ -178,18 +195,18 @@ function Doctor(props) {
                 <img src={doctor.image} alt='doctor' className='doctor__img' />
                 <div className="doctor__text-container">
                     <div className='doctor__text-container__name'>
-                        <span className='doctor__text-container__name__last'>{doctor.name.split(' ')[0]}</span>
-                        <span className='doctor__text-container__name__first'>{doctor.name.split(' ')[1]}</span>
+                        <span className='doctor__text-container__name__last'>{doctor.name}</span>
+                        {/* <span className='doctor__text-container__name__first'>{doctor.name.split(' ')[1]}</span> */}
                     </div>
                     <div className='doctor__text-container__information'>
-                        <FontAwesomeIcon icon={faStethoscope} style={{ color: "#ff8408", marginRight: "8px" }}/>
-                        {doctor.specialty}
-                        <FontAwesomeIcon icon={faLocationDot} style={{ color: "#ff8408", marginRight: "12px" }} />
-                        {doctor.location}
-                        <FontAwesomeIcon icon={faStar} style={{ color: "#ff8408", marginRight: "8px" }} />
-                        {doctor.ratings}
-                        <FontAwesomeIcon icon={faClock} style={{color: "#ff8408", marginRight: "8px"}} />
-                        {doctor.time}
+                        <div><FontAwesomeIcon icon={faStethoscope} style={{ color: "#ff8408", marginRight: "8px" }}/>
+                        {doctor.experience}</div>
+                        <div><FontAwesomeIcon icon={faLocationDot} style={{ color: "#ff8408", marginRight: "12px" }} />
+                        {department.departmentName}</div>
+                        <div><FontAwesomeIcon icon={faStar} style={{ color: "#ff8408", marginRight: "8px" }} />
+                        {doctor.rating}</div>
+                        <div><FontAwesomeIcon icon={faClock} style={{color: "#ff8408", marginRight: "8px"}} />
+                        9:00 - 15:00</div>
                     </div>
                     <div className='doctor__text-container__signup'>
                         <button onClick={handleAppointmentClick} className="doctor__text-container__signup__appointment-button">Записатися</button>
