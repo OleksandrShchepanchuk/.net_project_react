@@ -9,7 +9,6 @@ import MainPage from '../../pages/MainPage/MainPage';
 import HospitalHeader from '../Header/Header';
 
 function App() {
-  console.log(content);
   return (
       <BrowserRouter>
         <Routes>
