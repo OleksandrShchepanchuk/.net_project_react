@@ -4,19 +4,15 @@ import  { jwtDecode } from 'jwt-decode';
 const AuthenticationContext = createContext();
 
 export const AuthenticationProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(null);
 
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         console.log(token)
-        if ( tokenIsValid(token)) {
-            setIsAuthenticated(true);
-        }
-        if ( isItAdmin(token)){
-            setIsAdmin(true);
-        }
+            setIsAuthenticated( tokenIsValid(token));
+            setIsAdmin(isItAdmin(token));
     }, []);
 
     const tokenIsValid = (token) => {
@@ -36,6 +32,7 @@ export const AuthenticationProvider = ({ children }) => {
         try {
             const decodedToken = jwtDecode(token);
             var role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+            console.log(role)
             const userRoles = role;
             return !!userRoles.includes('Admin');
         } catch (error) {

@@ -11,18 +11,22 @@ import AuthenticationContext from '../../context/AuthenticationContext';
 export const AddArticle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [isAuth, setIsAuth] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false);
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const inputFileRef = useRef(null);
   const isEditing = Boolean(id);
+  const [loading, setLoading] = useState(true)
+  const { isAuthenticated, setIsAuthenticated, isAdmin, setIsAdmin } = useContext(AuthenticationContext);
 
-  const { isAuthenticated,  setIsAuthenticated} = useContext(AuthenticationContext);
-  const {isAdmin, setIsAdmin}= useContext(AuthenticationContext);
-  
-  console.log(isAdmin)
+
+  useEffect(() => {
+    if (isAuthenticated !== null && isAdmin !== null) 
+      {
+        setLoading(false);
+      }
+  }, [isAuthenticated, isAdmin]);
+
 
   const handleChangeFile = async (event) => {
     try {
@@ -80,12 +84,15 @@ export const AddArticle = () => {
     }
   };
   
-
+  if (loading) {
+    return <>loading...</>
+  }
 
 
     return (
       !isAdmin ? (
-        <Navigate to="/" />
+        // <Navigate to="/" />
+        <></>
       ) : (
         <Paper className="add-article" style={{ padding: 30 }}>
           <Button className="add-article__buttons-button" onClick={() => inputFileRef.current.click()} variant="outlined" size="large">

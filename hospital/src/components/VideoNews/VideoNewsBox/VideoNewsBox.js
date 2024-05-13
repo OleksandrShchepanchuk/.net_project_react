@@ -5,9 +5,13 @@ import newsbutton from '../../../images/VideoBoxButtons/NewsButton.png'
 
 import './VideoNewsBox.scss'
 import AuthenticationContext from "../../../context/AuthenticationContext";
+import { Navigate, useNavigate } from 'react-router-dom/dist';
 
 const VideoNewsBox = (props) =>{
 
+    const navigate = useNavigate();
+
+    
     const buttonImage = props.page === 'video'
         ? videobutton
         : newsbutton;
@@ -15,14 +19,14 @@ const VideoNewsBox = (props) =>{
         if (props.page==="video"){
             window.location.href="https://www.youtube.com/watch?v=0kQ8i2FpRDk";
         }else{
-            console.log("Hello world!");
+            navigate(`/articles/${props.id}`);
         }
-
+        
     }
     let maxLength=60;
     const truncatedTitle = props.title.length > maxLength ? props.title.substring(0, maxLength) + '...' : props.title;
 
-
+    console.log(props)
 
     return(
         <div className={"box__container"}>
